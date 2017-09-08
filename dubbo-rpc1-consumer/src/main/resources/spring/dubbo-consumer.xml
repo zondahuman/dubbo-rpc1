@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+
+    <dubbo:application name="dubbo-service" />
+    <dubbo:consumer timeout="5000" />
+
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <!--<dubbo:registry address="zookeeper://172.16.2.145:2181"/>-->
+    <!--<dubbo:reference interface="com.abin.lee.march.svr.dubbo.server.service.DubboService" id="dubboService" />-->
+
+
+    <!-- dubbo接口去除注册中心，采用直连的方式  -->
+    <dubbo:registry address="N/A"></dubbo:registry>
+
+
+    <dubbo:reference interface="com.abin.lee.dubbo.rpc.api.DubboService" id="dubboService" check="false"  url="dubbo://localhost:20880"/>
+    <dubbo:reference interface="com.abin.lee.dubbo.rpc.api.GlobalService" id="globalService" check="false"  url="dubbo://localhost:20880">
+        <dubbo:method name="findByParam" async="true" />
+    </dubbo:reference>
+
+
+
+</beans>
