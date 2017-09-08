@@ -9,7 +9,6 @@
         ">
 
     <dubbo:application name="dubbo-service" />
-    <dubbo:consumer timeout="5000" />
 
     <!-- 使用zookeeper注册中心暴露服务地址 -->
     <!--<dubbo:registry address="zookeeper://172.16.2.145:2181"/>-->
@@ -26,7 +25,7 @@
     </dubbo:reference>
 
 
-    <dubbo:consumer filter="logSessionFilter"/>
+    <dubbo:consumer filter="logSessionFilter" timeout="9000"/>
 
 
 

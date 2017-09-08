@@ -31,7 +31,7 @@
     <dubbo:registry address="N/A"></dubbo:registry>
 
 
-    <dubbo:provider filter="logSessionFilter"/>
+    <dubbo:provider filter="logSessionFilter"  timeout="9000"/>
 
 
 

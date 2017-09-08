@@ -24,9 +24,11 @@ public class DubboClientServer {
 
     public static void main(String[] args) throws InterruptedException {
         //synchronous
-        main_sync();
+//        main_sync();
         //asynchronous
 //        main_async();
+        //traceId
+        main_filter();
     }
 
     public static void main_sync() {
@@ -88,9 +90,9 @@ public class DubboClientServer {
         String message = "";
 
         try {
-//            Map<String, String> param = new HashMap<>();
-//            param.put("logSessionId", "900");
-//            RpcContext.getContext().setAttachments(param);
+            Map<String, String> param = new HashMap<>();
+            param.put("logSessionIds", "900");
+            RpcContext.getContext().setAttachments(param);
             message = dubboService.build("2016-10-20");
             System.out.println(" the message from server is:" + message);
 

@@ -3,6 +3,7 @@ package com.abin.lee.dubbo.rpc.provider.facade;
 import com.abin.lee.dubbo.rpc.api.DubboService;
 import com.abin.lee.dubbo.rpc.enums.UserRole;
 import com.abin.lee.dubbo.rpc.model.UserInfo;
+import com.alibaba.dubbo.rpc.RpcContext;
 import com.google.common.collect.Lists;
 
 import java.util.List;
@@ -15,7 +16,8 @@ import java.util.List;
 public class DubboServiceImpl implements DubboService {
 
     public String build(String name) throws Exception {
-        System.out.println(" got a argument: " + name);
+        String logSessionIds = RpcContext.getContext().getAttachment("logSessionIds");
+        System.out.println(" got a argument: " + name + ", logSessionIds="+logSessionIds);
         return "message from provider: " + name;
     }
 
