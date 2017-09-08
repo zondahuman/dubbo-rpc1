@@ -1,0 +1,1 @@
+logSessionFilter=com.abin.lee.dubbo.rpc.consumer.filter.RpcLogSessionFilter
