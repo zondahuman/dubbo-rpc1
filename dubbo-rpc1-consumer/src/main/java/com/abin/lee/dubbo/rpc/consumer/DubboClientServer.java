@@ -9,7 +9,9 @@ import com.alibaba.dubbo.rpc.RpcContext;
 import com.google.common.collect.Lists;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Future;
 
 /**
@@ -76,4 +78,26 @@ public class DubboClientServer {
         }
 
     }
+
+
+
+    public static void main_filter() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath*:spring/dubbo-consumer.xml"});
+        context.start();
+        DubboService dubboService = (DubboService) context.getBean("dubboService"); // 获取bean
+        String message = "";
+
+        try {
+//            Map<String, String> param = new HashMap<>();
+//            param.put("logSessionId", "900");
+//            RpcContext.getContext().setAttachments(param);
+            message = dubboService.build("2016-10-20");
+            System.out.println(" the message from server is:" + message);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -26,5 +26,8 @@
     </dubbo:reference>
 
 
+    <dubbo:consumer filter="logSessionFilter"/>
+
+
 
 </beans>
