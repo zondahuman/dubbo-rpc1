@@ -2,10 +2,12 @@ package com.abin.lee.dubbo.rpc.provider.facade;
 
 import com.abin.lee.dubbo.rpc.api.DubboService;
 import com.abin.lee.dubbo.rpc.enums.UserRole;
+import com.abin.lee.dubbo.rpc.model.OrderInfo;
 import com.abin.lee.dubbo.rpc.model.UserInfo;
 import com.alibaba.dubbo.rpc.RpcContext;
 import com.google.common.collect.Lists;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -56,5 +58,19 @@ public class DubboServiceImpl implements DubboService {
             result.add(new UserInfo(i, "abin"+i));
         }
         return result;
+    }
+
+    @Override
+    public List<OrderInfo> findUserInfoById(OrderInfo orderInfo) {
+        List<OrderInfo> result = Lists.newArrayList();
+
+        OrderInfo.BasicInfo basicInfo = new OrderInfo.BasicInfo();
+        List<BigDecimal> basicPrice = Lists.newArrayList();
+        basicPrice.add(new BigDecimal("24.56789"));
+        basicPrice.add(new BigDecimal("24.56790"));
+
+
+
+        return null;
     }
 }
