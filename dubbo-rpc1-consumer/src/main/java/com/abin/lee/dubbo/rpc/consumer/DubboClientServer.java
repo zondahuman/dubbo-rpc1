@@ -50,9 +50,9 @@ public class DubboClientServer {
             System.out.println("list is:" + JsonUtil.toJson(list));
             userRole = dubboService.findByParam(10);
             System.out.println("userRole is:" + userRole);
-            resultList = dubboService.findById(Lists.newArrayList(1,2));
+            resultList = dubboService.findById(Lists.newArrayList(1, 2));
             System.out.println("resultList is:" + JsonUtil.toJson(resultList));
-            userInfoList = dubboService.findUserInfoById(Lists.newArrayList(1,2));
+            userInfoList = dubboService.findUserInfoById(Lists.newArrayList(1, 2));
             System.out.println("userInfoList is:" + JsonUtil.toJson(userInfoList));
 
         } catch (Exception e) {
@@ -82,7 +82,6 @@ public class DubboClientServer {
     }
 
 
-
     public static void main_filter() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath*:spring/dubbo-consumer.xml"});
         context.start();
@@ -91,8 +90,9 @@ public class DubboClientServer {
 
         try {
             Map<String, String> param = new HashMap<>();
-//            param.put("traceId", "900");
-//            RpcContext.getContext().setAttachments(param);
+            int randomTraceId = (int) (Math.random() * 1000);
+            param.put("traceId", randomTraceId + "");
+            RpcContext.getContext().setAttachments(param);
             message = dubboService.build("2016-10-20");
             System.out.println(" the message from server is:" + message);
             String traceId = RpcContext.getContext().getAttachment("traceId");
