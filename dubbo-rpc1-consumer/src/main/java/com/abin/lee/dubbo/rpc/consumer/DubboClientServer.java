@@ -5,8 +5,8 @@ import com.abin.lee.dubbo.rpc.api.GlobalService;
 import com.abin.lee.dubbo.rpc.common.util.JsonUtil;
 import com.abin.lee.dubbo.rpc.enums.UserRole;
 import com.abin.lee.dubbo.rpc.model.UserInfo;
-import com.alibaba.dubbo.rpc.RpcContext;
 import com.google.common.collect.Lists;
+import org.apache.dubbo.rpc.RpcContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.HashMap;
@@ -91,11 +91,12 @@ public class DubboClientServer {
 
         try {
             Map<String, String> param = new HashMap<>();
-            param.put("logSessionIds", "900");
-            RpcContext.getContext().setAttachments(param);
+//            param.put("traceId", "900");
+//            RpcContext.getContext().setAttachments(param);
             message = dubboService.build("2016-10-20");
             System.out.println(" the message from server is:" + message);
-
+            String traceId = RpcContext.getContext().getAttachment("traceId");
+            System.out.println(" the message from server is result traceId :" + traceId);
 
         } catch (Exception e) {
             e.printStackTrace();

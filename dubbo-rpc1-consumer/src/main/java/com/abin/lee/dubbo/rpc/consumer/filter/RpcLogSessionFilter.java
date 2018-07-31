@@ -1,6 +1,7 @@
 package com.abin.lee.dubbo.rpc.consumer.filter;
 
-import com.alibaba.dubbo.rpc.*;
+
+import org.apache.dubbo.rpc.*;
 
 import java.util.UUID;
 
@@ -11,8 +12,8 @@ public class RpcLogSessionFilter implements Filter {
 
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
         String sessionId=UUID.randomUUID().toString();
-        RpcContext.getContext().setAttachment("logSessionId",sessionId);
-        System.out.println(sessionId);
+        RpcContext.getContext().setAttachment("traceId",sessionId);
+        System.out.println("sessionId="+sessionId);
         return invoker.invoke(invocation);
     }
 
