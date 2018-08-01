@@ -18,15 +18,15 @@ import java.util.List;
 public class DubboServiceImpl implements DubboService {
 
     public String build(String name) throws Exception {
-        String logSessionIds = RpcContext.getContext().getAttachment("logSessionIds");
-        System.out.println(" got a argument: " + name + ", logSessionIds="+logSessionIds);
+        String traceId = RpcContext.getContext().getAttachment("traceId");
+        System.out.println(" got a argument: " + name + ", traceId=" + traceId);
         return "message from provider: " + name;
     }
 
     @Override
     public List<Integer> findById(int id) {
         List<Integer> list = Lists.newArrayList();
-        for (int i = 0; i <id ; i++) {
+        for (int i = 0; i < id; i++) {
             list.add(i);
         }
         return list;
@@ -34,7 +34,7 @@ public class DubboServiceImpl implements DubboService {
 
     @Override
     public UserRole findByParam(int id) {
-        if(id == 10)
+        if (id == 10)
             return UserRole.SYSTEM;
         return UserRole.MANNUAL;
     }
@@ -44,7 +44,7 @@ public class DubboServiceImpl implements DubboService {
     public List<Integer> findById(List<Integer> list) {
         int id = list.get(0);
         List<Integer> result = Lists.newArrayList();
-        for (int i = 0; i <id ; i++) {
+        for (int i = 0; i < id; i++) {
             result.add(i);
         }
         return result;
@@ -54,8 +54,8 @@ public class DubboServiceImpl implements DubboService {
     public List<UserInfo> findUserInfoById(List<Integer> list) {
         int id = list.get(1);
         List<UserInfo> result = Lists.newArrayList();
-        for (int i = 0; i <id ; i++) {
-            result.add(new UserInfo(i, "abin"+i));
+        for (int i = 0; i < id; i++) {
+            result.add(new UserInfo(i, "abin" + i));
         }
         return result;
     }
@@ -68,7 +68,6 @@ public class DubboServiceImpl implements DubboService {
         List<BigDecimal> basicPrice = Lists.newArrayList();
         basicPrice.add(new BigDecimal("24.56789"));
         basicPrice.add(new BigDecimal("24.56790"));
-
 
 
         return null;

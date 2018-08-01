@@ -8,8 +8,8 @@ import com.alibaba.dubbo.rpc.*;
 public class ProviderRpcLogSessionFilter implements Filter {
 
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
-        String logSessionId= RpcContext.getContext().getAttachment("logSessionId");
-        System.out.println(logSessionId);
+        String traceId = RpcContext.getContext().getAttachment("traceId");
+        System.out.println("ProviderRpcLogSessionFilter---traceId=" + traceId);
         return invoker.invoke(invocation);
     }
 }
