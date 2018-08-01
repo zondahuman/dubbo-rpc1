@@ -6,6 +6,8 @@ import com.abin.lee.dubbo.rpc.model.OrderInfo;
 import com.abin.lee.dubbo.rpc.model.UserInfo;
 import com.alibaba.dubbo.rpc.RpcContext;
 import com.google.common.collect.Lists;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -16,10 +18,11 @@ import java.util.List;
  * com.abin.lee.march.svr.rpc.service.impl
  */
 public class DubboServiceImpl implements DubboService {
+    private static final Logger logger = LoggerFactory.getLogger(DubboServiceImpl.class);
 
     public String build(String name) throws Exception {
         String traceId = RpcContext.getContext().getAttachment("traceId");
-        System.out.println(" got a argument: " + name + ", traceId=" + traceId);
+        logger.info(" got a argument: " + name + ", traceId=..." + traceId);
         return "message from provider: " + name;
     }
 
