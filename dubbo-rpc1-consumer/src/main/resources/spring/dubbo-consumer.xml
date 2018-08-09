@@ -14,6 +14,8 @@
     <!--<dubbo:registry address="zookeeper://172.16.2.145:2181"/>-->
     <!--<dubbo:reference interface="com.abin.lee.march.svr.dubbo.server.service.DubboService" id="dubboService" />-->
 
+    <!-- 设置优雅停机超时时间，缺省超时时间是10秒；(超时则强制关闭) -->
+    <dubbo:parameter  key="shutdown.timeout" value="60000" /><!-- 单位毫秒 -->
 
     <!-- dubbo接口去除注册中心，采用直连的方式  -->
     <dubbo:registry address="N/A"></dubbo:registry>
