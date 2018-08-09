@@ -20,7 +20,13 @@
 
     <dependencies>
         <dependency>
-            <artifactId>dubbo-rpc1-api</artifactId>
+            <artifactId>dubbo-rpc1-common</artifactId>
+            <groupId>com.abin.lee</groupId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>dubbo-rpc1-model</artifactId>
             <groupId>com.abin.lee</groupId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
