@@ -19,12 +19,14 @@ public class DubboServiceImpl implements DubboService {
 
     public String build(String name) throws Exception {
         String logSessionIds = RpcContext.getContext().getAttachment("traceId");
-        System.out.println(" got a argument: " + name + ", traceId="+logSessionIds);
+        System.out.println("build--name: " + name + ", traceId="+logSessionIds);
         return "message from provider: " + name;
     }
 
     @Override
     public List<Integer> findById(int id) {
+        String logSessionIds = RpcContext.getContext().getAttachment("traceId");
+        System.out.println("findById--id: " + id + ", traceId="+logSessionIds);
         List<Integer> list = Lists.newArrayList();
         for (int i = 0; i <id ; i++) {
             list.add(i);

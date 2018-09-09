@@ -94,7 +94,9 @@ public class DubboClientServer {
             param.put("traceId", randomTraceId + "");
             RpcContext.getContext().setAttachments(param);
             message = dubboService.build("2016-10-20");
-            System.out.println(" the message from server is:" + message);
+            System.out.println("dubboService.build-- the message from server is:" + message);
+            List<Integer> list = dubboService.findById(5);
+            System.out.println("dubboService.findById--- the message from server is:" + JsonUtil.toJson(list));
             String traceId = RpcContext.getContext().getAttachment("traceId");
             System.out.println(" the message from server is result traceId :" + traceId);
 
