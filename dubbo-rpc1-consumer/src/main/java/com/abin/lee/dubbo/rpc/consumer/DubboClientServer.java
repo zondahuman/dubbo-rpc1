@@ -6,6 +6,7 @@ import com.abin.lee.dubbo.rpc.common.util.JsonUtil;
 import com.abin.lee.dubbo.rpc.enums.UserRole;
 import com.abin.lee.dubbo.rpc.model.UserInfo;
 import com.google.common.collect.Lists;
+import org.apache.dubbo.common.TraceIdUtil;
 import org.apache.dubbo.rpc.RpcContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -89,10 +90,11 @@ public class DubboClientServer {
         String message = "";
 
         try {
-            Map<String, String> param = new HashMap<>();
+//            Map<String, String> param = new HashMap<>();
             int randomTraceId = (int) (Math.random() * 1000);
-            param.put("traceId", randomTraceId + "");
-            RpcContext.getContext().setAttachments(param);
+//            param.put("traceId", randomTraceId + "");
+//            RpcContext.getContext().setAttachments(param);
+            TraceIdUtil.setTraceId(randomTraceId+"");
             message = dubboService.build("2016-10-20");
             System.out.println("dubboService.build-- the message from server is:" + message);
             List<Integer> list = dubboService.findById(5);
