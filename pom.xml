@@ -28,11 +28,11 @@
 
 
     <repositories>
-        <repository>
-            <id>repository.springframework.maven.milestone</id>
-            <name>Spring Framework Maven Milestone Repository</name>
-            <url>http://repo.spring.io/milestone/</url>
-        </repository>
+        <!--<repository>-->
+            <!--<id>repository.springframework.maven.milestone</id>-->
+            <!--<name>Spring Framework Maven Milestone Repository</name>-->
+            <!--<url>http://repo.spring.io/milestone/</url>-->
+        <!--</repository>-->
     </repositories>
 
 

@@ -94,8 +94,9 @@ public class DubboClientServer {
             param.put("traceId", traceId + "");
             RpcContext.getContext().setAttachments(param);
             message = dubboService.build("2016-10-20");
-            System.out.println(" the message from server is:" + message);
-
+            System.out.println("message:" + message);
+            List<Integer> list = dubboService.findById(5);
+            System.out.println("list:" + JsonUtil.toJson(list));
 
         } catch (Exception e) {
             e.printStackTrace();

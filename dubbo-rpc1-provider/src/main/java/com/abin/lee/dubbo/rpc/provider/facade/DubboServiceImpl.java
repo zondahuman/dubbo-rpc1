@@ -22,14 +22,15 @@ public class DubboServiceImpl implements DubboService {
 
     public String build(String name) throws Exception {
         String traceId = RpcContext.getContext().getAttachment("traceId");
-        logger.info(" got a argument: " + name + ", traceId=..." + traceId);
-        logger.error(" got a argument: " + name + ", traceId=..." + traceId);
-        logger.debug(" got a argument: " + name + ", traceId=..." + traceId);
+        logger.info("name: " + name + ", traceId=..." + traceId);
+
         return "message from provider: " + name;
     }
 
     @Override
     public List<Integer> findById(int id) {
+        String traceId = RpcContext.getContext().getAttachment("traceId");
+        logger.info("id: " + id + ", traceId=..." + traceId);
         List<Integer> list = Lists.newArrayList();
         for (int i = 0; i < id; i++) {
             list.add(i);
