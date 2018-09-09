@@ -25,10 +25,10 @@
 
 
     <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <!--<dubbo:registry address="zookeeper://172.16.2.145:2181"/>-->
+    <dubbo:registry address="zookeeper://localhost:2181"/>
 
     <!-- dubbo接口去除注册中心，采用直连的方式  -->
-    <dubbo:registry address="N/A"></dubbo:registry>
+    <!--<dubbo:registry address="N/A"></dubbo:registry>-->
 
 
     <dubbo:provider filter="logSessionFilter"  timeout="9000"/>

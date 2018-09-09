@@ -11,12 +11,10 @@
     <dubbo:application name="dubbo-service" />
 
     <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <!--<dubbo:registry address="zookeeper://172.16.2.145:2181"/>-->
-    <!--<dubbo:reference interface="com.abin.lee.march.svr.dubbo.server.service.DubboService" id="dubboService" />-->
-
+    <dubbo:registry address="zookeeper://localhost:2181"/>
 
     <!-- dubbo接口去除注册中心，采用直连的方式  -->
-    <dubbo:registry address="N/A"></dubbo:registry>
+    <!--<dubbo:registry address="N/A"></dubbo:registry>-->
 
 
     <dubbo:reference interface="com.abin.lee.dubbo.rpc.api.DubboService" id="dubboService" check="false"  url="dubbo://localhost:20880"/>
