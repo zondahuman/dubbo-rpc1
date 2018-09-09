@@ -33,6 +33,9 @@ https://blog.csdn.net/coolsky600/article/details/63684046
 ion=dubbo-client&default.service.filter=logSessionFilter&default.timeout=9000&dubbo=2.0.1&generic=false&interface=com.abin.lee.dubbo.rpc.api.DubboService&methods=findUserInfo
 ById,build,findById,findByParam&pid=846368&side=provider&timestamp=1536485385082
 
+[zk: localhost:2181(CONNECTED) 5] get /dubbo/com.abin.lee.dubbo.rpc.api.DubboService/configurators
+192.168.0.103
+
 
 
 
