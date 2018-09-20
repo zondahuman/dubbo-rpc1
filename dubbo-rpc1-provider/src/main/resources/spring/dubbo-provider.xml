@@ -32,7 +32,8 @@
     <!-- dubbo接口去除注册中心，采用直连的方式  -->
     <dubbo:registry address="N/A"></dubbo:registry>
 
-    <!--<dubbo:provider filter="logSessionFilter"  timeout="9000"/>-->
+    <dubbo:provider filter="logSessionFilter"  timeout="9000"/>
+    <dubbo:provider filter="trafficLimitFilter"  timeout="9000"/>
 
 
 

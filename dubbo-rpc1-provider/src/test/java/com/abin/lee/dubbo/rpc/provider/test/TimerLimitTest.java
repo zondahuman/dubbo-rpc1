@@ -1,4 +1,4 @@
-package com.abin.lee.dubbo.rpc.provider.limit;
+package com.abin.lee.dubbo.rpc.provider.test;
 
 import com.abin.lee.dubbo.rpc.common.util.DateUtil;
 import com.google.common.util.concurrent.RateLimiter;
@@ -9,10 +9,10 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by abin on 2018/9/20.
  */
-public class TimerLimit {
-    static RateLimiter limiter = RateLimiter.create(1, 1, TimeUnit.SECONDS); // 每秒不超过10个任务被提交
+public class TimerLimitTest {
+    static RateLimiter limiter = RateLimiter.create(3200, 1, TimeUnit.SECONDS); // 每秒不超过10个任务被提交
 
-    public static boolean acquired() {
+    public static boolean acquired(int limit) {
         boolean flag = limiter.tryAcquire(1, TimeUnit.SECONDS);
         return flag;
     }

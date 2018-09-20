@@ -1,1 +1,2 @@
 logSessionFilter=com.abin.lee.dubbo.rpc.provider.filter.ProviderRpcLogSessionFilter
+trafficLimitFilter=com.abin.lee.dubbo.rpc.provider.filter.TrafficLimitFilter
