@@ -29,12 +29,12 @@ public class DubboClientServer {
         //asynchronous
 //        main_async();
         //traceId
-        while (true) {
-            for (int i = 0; i < 10; i++) {
+//        while (true) {
+//            for (int i = 0; i < 10; i++) {
                 main_filter1();
-            }
-            Thread.sleep(12000);
-        }
+//            }
+//            Thread.sleep(12000);
+//        }
     }
 
     public static void main_sync() {
@@ -121,8 +121,8 @@ public class DubboClientServer {
         try {
             int randomTraceId = (int) (Math.random() * 1000);
             TraceIdUtil.setTraceId(randomTraceId + "");
-            message = commonService.create("");
-//            message = commonService.create("2016-10-20");
+//            message = commonService.create("");
+            message = commonService.create("2016-10-20");
             System.out.println("CommonService.create--:"+ DateUtil.getYMDHMSTime()+"-" + message);
         } catch (Exception e) {
             e.printStackTrace();

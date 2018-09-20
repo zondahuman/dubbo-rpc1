@@ -15,7 +15,7 @@
     <!-- 具体的实现bean -->
     <bean id="dubboService" class="com.abin.lee.dubbo.rpc.provider.facade.DubboServiceImpl"/>
     <bean id="globalService" class="com.abin.lee.dubbo.rpc.provider.facade.GlobalServiceImpl"/>
-    <bean id="commonService" class="com.abin.lee.dubbo.rpc.provider.facade.CommonServiceMock"/>
+    <bean id="commonService" class="com.abin.lee.dubbo.rpc.provider.facade.CommonServiceImpl"/>
     <!-- 提供方应用信息，用于计算依赖关系 -->
     <dubbo:application name="dubbo-client"/>
     <!-- 用dubbo协议在20880端口暴露服务 -->
