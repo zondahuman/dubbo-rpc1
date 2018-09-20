@@ -17,13 +17,13 @@ public class RpcLogSessionFilter implements Filter {
 //        String traceId = RpcContext.getContext().getAttachment("traceId");
         String traceId = TraceIdUtil.getTraceId();
         if (StringUtils.isNotBlank(traceId)) {
-            System.out.println("accept traceId=" + traceId);
+//            System.out.println("accept traceId=" + traceId);
         } else {
             traceId = sessionId ;
-            System.out.println("create traceId=" + traceId);
+//            System.out.println("create traceId=" + traceId);
         }
         RpcContext.getContext().setAttachment("traceId", traceId);
-        System.out.println("transfer traceId=" + traceId);
+//        System.out.println("transfer traceId=" + traceId);
         return invoker.invoke(invocation);
     }
 

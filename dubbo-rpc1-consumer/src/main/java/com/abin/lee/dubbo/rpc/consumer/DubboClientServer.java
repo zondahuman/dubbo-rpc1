@@ -1,7 +1,9 @@
 package com.abin.lee.dubbo.rpc.consumer;
 
+import com.abin.lee.dubbo.rpc.api.CommonService;
 import com.abin.lee.dubbo.rpc.api.DubboService;
 import com.abin.lee.dubbo.rpc.api.GlobalService;
+import com.abin.lee.dubbo.rpc.common.util.DateUtil;
 import com.abin.lee.dubbo.rpc.common.util.JsonUtil;
 import com.abin.lee.dubbo.rpc.enums.UserRole;
 import com.abin.lee.dubbo.rpc.model.UserInfo;
@@ -10,9 +12,7 @@ import org.apache.dubbo.common.TraceIdUtil;
 import org.apache.dubbo.rpc.RpcContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.Future;
 
 /**
@@ -29,11 +29,16 @@ public class DubboClientServer {
         //asynchronous
 //        main_async();
         //traceId
-        main_filter();
+        while (true) {
+            for (int i = 0; i < 10; i++) {
+                main_filter1();
+            }
+            Thread.sleep(12000);
+        }
     }
 
     public static void main_sync() {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath*:spring/dubbo-consumer.xml"});
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath*:spring/dubbo-consumer.xml","classpath*:dubbo.properties"});
         context.start();
         DubboService dubboService = (DubboService) context.getBean("dubboService"); // 获取bean
         // service
@@ -94,17 +99,35 @@ public class DubboClientServer {
             int randomTraceId = (int) (Math.random() * 1000);
 //            param.put("traceId", randomTraceId + "");
 //            RpcContext.getContext().setAttachments(param);
-            TraceIdUtil.setTraceId(randomTraceId+"");
+            TraceIdUtil.setTraceId(randomTraceId + "");
             message = dubboService.build("2016-10-20");
             System.out.println("dubboService.build-- the message from server is:" + message);
             List<Integer> list = dubboService.findById(5);
             System.out.println("dubboService.findById--- the message from server is:" + JsonUtil.toJson(list));
-            String traceId = RpcContext.getContext().getAttachment("traceId");
-            System.out.println(" the message from server is result traceId :" + traceId);
+//            String traceId = RpcContext.getContext().getAttachment("traceId");
+//            System.out.println(" the message from server is result traceId :" + traceId);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
+    public static void main_filter1() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath*:spring/dubbo-consumer.xml"});
+        context.start();
+        CommonService commonService = (CommonService) context.getBean("commonService"); // 获取bean
+        String message = "";
+        try {
+            int randomTraceId = (int) (Math.random() * 1000);
+            TraceIdUtil.setTraceId(randomTraceId + "");
+            message = commonService.create("");
+//            message = commonService.create("2016-10-20");
+            System.out.println("CommonService.create--:"+ DateUtil.getYMDHMSTime()+"-" + message);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
