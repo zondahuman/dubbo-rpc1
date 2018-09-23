@@ -30,9 +30,9 @@ public class DubboClientServer {
 //        main_async();
         //traceId
 //        while (true) {
-//            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 10; i++) {
                 main_filter1();
-//            }
+            }
 //            Thread.sleep(12000);
 //        }
     }

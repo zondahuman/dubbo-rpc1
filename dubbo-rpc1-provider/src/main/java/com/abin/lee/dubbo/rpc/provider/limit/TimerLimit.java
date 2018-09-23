@@ -13,7 +13,8 @@ public class TimerLimit {
     static RateLimiter limiter = RateLimiter.create(1, 1, TimeUnit.SECONDS); // 每秒不超过10个任务被提交
 
     public static boolean acquired() {
-        boolean flag = limiter.tryAcquire(1, TimeUnit.SECONDS);
+        boolean flag = limiter.tryAcquire();
+//        boolean flag = limiter.tryAcquire(1, TimeUnit.SECONDS);
         return flag;
     }
 
