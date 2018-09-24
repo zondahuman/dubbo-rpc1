@@ -17,7 +17,7 @@ import java.util.List;
 public class GlobalServiceImpl implements GlobalService {
 
     public String create(Integer param) throws Exception{
-        if(param % 2 == 0){
+        if(param % 5 != 4){
             throw new RuntimeException("a new exception");
         }else{
             System.out.println("create argument param : " + param);
