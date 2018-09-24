@@ -16,4 +16,5 @@ public class ProviderRpcLogSessionFilter implements Filter {
 //        RpcContext.getContext().setAttachment("traceId", traceId);
         return invoker.invoke(invocation);
     }
+
 }
