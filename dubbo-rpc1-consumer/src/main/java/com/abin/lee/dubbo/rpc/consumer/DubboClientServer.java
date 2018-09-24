@@ -115,7 +115,9 @@ public class DubboClientServer {
     public static void main_filter1() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath*:spring/dubbo-consumer.xml"});
         context.start();
-        CommonService commonService = (CommonService) context.getBean("commonService"); // 获取bean
+//        CommonService commonService = (CommonService) context.getBean("commonService"); // 获取bean
+//        DubboService dubboService = (DubboService) context.getBean("dubboService"); // 获取bean
+        GlobalService globalService = (GlobalService) context.getBean("globalService"); // 获取bean
         String message = "";
         try {
 //            int randomTraceId = (int) (Math.random() * 1000);
@@ -123,7 +125,7 @@ public class DubboClientServer {
 //            message = commonService.create("");
             for (int i = 0; i <10000 ; i++) {
                 Thread.sleep(500);
-                message = commonService.create("2016-10-20");
+                message = globalService.create(i);
                 System.out.println("CommonService.create--:"+ DateUtil.getYMDHMSTime()+"-" + message);
             }
 
