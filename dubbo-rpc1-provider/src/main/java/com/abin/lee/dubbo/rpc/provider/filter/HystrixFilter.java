@@ -8,7 +8,7 @@ import com.alibaba.dubbo.rpc.*;
 /**
  * Created by abin on 2018/9/23.
  */
-@Activate(group = Constants.CONSUMER)
+@Activate(group = Constants.PROVIDER)
 public class HystrixFilter implements Filter {
 
     @Override
