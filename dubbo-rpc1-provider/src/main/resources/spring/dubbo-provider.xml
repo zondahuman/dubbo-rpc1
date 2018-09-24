@@ -23,7 +23,7 @@
     <!-- 声明需要暴露的服务接口 -->
     <dubbo:service interface="com.abin.lee.dubbo.rpc.api.DubboService" ref="dubboService" timeout="1"
                    filter="hystrixFilter">
-        <dubbo:method name="say" retries="0"/>
+        <!--<dubbo:method name="say" retries="0"/>-->
         <dubbo:parameter key="ThreadPoolCoreSize" value="30"/>
     </dubbo:service>
 
