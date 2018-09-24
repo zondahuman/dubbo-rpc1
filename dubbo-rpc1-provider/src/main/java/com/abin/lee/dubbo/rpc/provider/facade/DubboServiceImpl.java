@@ -4,8 +4,9 @@ import com.abin.lee.dubbo.rpc.api.DubboService;
 import com.abin.lee.dubbo.rpc.enums.UserRole;
 import com.abin.lee.dubbo.rpc.model.OrderInfo;
 import com.abin.lee.dubbo.rpc.model.UserInfo;
+import com.alibaba.dubbo.rpc.RpcContext;
 import com.google.common.collect.Lists;
-import org.apache.dubbo.rpc.RpcContext;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
  * march-svr
  * com.abin.lee.march.svr.rpc.service.impl
  */
+@Service
 public class DubboServiceImpl implements DubboService {
 
     public String build(String name) throws Exception {

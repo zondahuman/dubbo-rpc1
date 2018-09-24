@@ -14,6 +14,6 @@ public class TrafficLimitFilter implements Filter {
         if(flag){
             return invoker.invoke(invocation);
         }
-        return invoker.invoke(null);
+        return invoker.invoke(invocation);
     }
 }

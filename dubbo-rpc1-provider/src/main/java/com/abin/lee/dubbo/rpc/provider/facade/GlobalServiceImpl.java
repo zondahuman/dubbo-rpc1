@@ -4,6 +4,7 @@ import com.abin.lee.dubbo.rpc.api.GlobalService;
 import com.abin.lee.dubbo.rpc.enums.UserRole;
 import com.abin.lee.dubbo.rpc.model.UserInfo;
 import com.google.common.collect.Lists;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * march-svr
  * com.abin.lee.march.svr.rpc.service.impl
  */
+@Service
 public class GlobalServiceImpl implements GlobalService {
 
     public String build(String name) throws Exception {

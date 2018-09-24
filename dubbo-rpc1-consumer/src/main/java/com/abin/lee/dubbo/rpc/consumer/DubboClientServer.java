@@ -7,9 +7,8 @@ import com.abin.lee.dubbo.rpc.common.util.DateUtil;
 import com.abin.lee.dubbo.rpc.common.util.JsonUtil;
 import com.abin.lee.dubbo.rpc.enums.UserRole;
 import com.abin.lee.dubbo.rpc.model.UserInfo;
+import com.alibaba.dubbo.rpc.RpcContext;
 import com.google.common.collect.Lists;
-import org.apache.dubbo.common.TraceIdUtil;
-import org.apache.dubbo.rpc.RpcContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
@@ -99,7 +98,7 @@ public class DubboClientServer {
             int randomTraceId = (int) (Math.random() * 1000);
 //            param.put("traceId", randomTraceId + "");
 //            RpcContext.getContext().setAttachments(param);
-            TraceIdUtil.setTraceId(randomTraceId + "");
+//            TraceIdUtil.setTraceId(randomTraceId + "");
             message = dubboService.build("2016-10-20");
             System.out.println("dubboService.build-- the message from server is:" + message);
             List<Integer> list = dubboService.findById(5);
@@ -119,11 +118,14 @@ public class DubboClientServer {
         CommonService commonService = (CommonService) context.getBean("commonService"); // 获取bean
         String message = "";
         try {
-            int randomTraceId = (int) (Math.random() * 1000);
-            TraceIdUtil.setTraceId(randomTraceId + "");
+//            int randomTraceId = (int) (Math.random() * 1000);
+//            TraceIdUtil.setTraceId(randomTraceId + "");
 //            message = commonService.create("");
-            message = commonService.create("2016-10-20");
-            System.out.println("CommonService.create--:"+ DateUtil.getYMDHMSTime()+"-" + message);
+            for (int i = 0; i <10000 ; i++) {
+                message = commonService.create("2016-10-20");
+                System.out.println("CommonService.create--:"+ DateUtil.getYMDHMSTime()+"-" + message);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
