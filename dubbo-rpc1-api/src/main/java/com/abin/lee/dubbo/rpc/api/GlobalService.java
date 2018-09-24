@@ -11,6 +11,8 @@ import java.util.List;
  */
 public interface GlobalService {
 
+    String create(Integer param) throws Exception;
+
     String build(String name) throws Exception;
 
     List<Integer> findById(int id);

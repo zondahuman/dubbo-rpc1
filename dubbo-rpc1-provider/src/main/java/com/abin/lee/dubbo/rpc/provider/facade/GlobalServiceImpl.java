@@ -16,6 +16,15 @@ import java.util.List;
 @Service
 public class GlobalServiceImpl implements GlobalService {
 
+    public String create(Integer param) throws Exception{
+        if(param % 2 == 0){
+            throw new RuntimeException("a new exception");
+        }else{
+            System.out.println("create argument param : " + param);
+            return "hi, " + param;
+        }
+    }
+
     public String build(String name) throws Exception {
         System.out.println(" got a argument: " + name);
         return "message from provider: " + name;
