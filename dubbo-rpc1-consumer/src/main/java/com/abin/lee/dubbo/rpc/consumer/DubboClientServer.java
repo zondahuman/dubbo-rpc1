@@ -124,7 +124,7 @@ public class DubboClientServer {
 //            TraceIdUtil.setTraceId(randomTraceId + "");
 //            message = commonService.create("");
             for (int i = 0; i <10000 ; i++) {
-                Thread.sleep(500);
+                Thread.sleep(80);
                 message = globalService.create(i);
                 System.out.println("CommonService.create--:"+ DateUtil.getYMDHMSTime()+"-" + message);
             }
