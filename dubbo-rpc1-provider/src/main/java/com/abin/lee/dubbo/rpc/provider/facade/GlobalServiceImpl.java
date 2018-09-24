@@ -13,7 +13,7 @@ import java.util.List;
  * march-svr
  * com.abin.lee.march.svr.rpc.service.impl
  */
-@Service
+@Service(value="globalService")
 public class GlobalServiceImpl implements GlobalService {
 
     public String create(Integer param) throws Exception{

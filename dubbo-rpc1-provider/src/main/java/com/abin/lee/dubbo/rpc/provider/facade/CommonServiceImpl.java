@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * march-svr
  * com.abin.lee.march.svr.rpc.service.impl
  */
-@Service
+@Service(value="commonService")
 public class CommonServiceImpl implements CommonService {
 
 

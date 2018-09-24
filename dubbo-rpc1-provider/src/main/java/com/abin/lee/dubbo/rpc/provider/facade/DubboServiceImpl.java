@@ -16,7 +16,7 @@ import java.util.List;
  * march-svr
  * com.abin.lee.march.svr.rpc.service.impl
  */
-@Service
+@Service(value="dubboService")
 public class DubboServiceImpl implements DubboService {
 
     public String build(String name) throws Exception {
