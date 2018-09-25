@@ -10,6 +10,7 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.slots.block.RuleConstant;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
+import com.google.common.primitives.Ints;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -26,11 +27,12 @@ public class BusinessServiceImpl implements BusinessService {
 
     @Override
     @SentinelResource(value = "createBusiness", blockHandler = "handleException", blockHandlerClass = {ExceptionUtil.class})
-    public String createBusiness(String name) throws Exception {
-        if(StringUtils.isBlank(name)){
+    public String createBusiness(String input) throws Exception {
+        Integer param = Ints.tryParse(input);
+        if(param != 0){
             throw new RuntimeException("a new exception ..");
         }
-        return DateUtil.getYMDHMSTime()+" : " + name;
+        return DateUtil.getYMDHMSTime()+" :createBusiness= " + param;
     }
 
 
@@ -40,7 +42,7 @@ public class BusinessServiceImpl implements BusinessService {
         if(param != 0){
             throw new RuntimeException("a new exception ..");
         }
-        return DateUtil.getYMDHMSTime()+" :param= " + param;
+        return DateUtil.getYMDHMSTime()+" :createNumber= " + param;
     }
 
     // Fallback 函数，函数签名与原函数一致.

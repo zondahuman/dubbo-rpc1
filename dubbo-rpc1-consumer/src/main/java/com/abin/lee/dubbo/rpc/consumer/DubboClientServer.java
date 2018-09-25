@@ -1,5 +1,6 @@
 package com.abin.lee.dubbo.rpc.consumer;
 
+import com.abin.lee.dubbo.rpc.api.BusinessService;
 import com.abin.lee.dubbo.rpc.api.CommonService;
 import com.abin.lee.dubbo.rpc.api.DubboService;
 import com.abin.lee.dubbo.rpc.api.GlobalService;
@@ -30,7 +31,9 @@ public class DubboClientServer {
         //traceId
 //        while (true) {
             for (int i = 0; i < 10; i++) {
-                main_filter1();
+//                main_filter_trace();
+//                main_filter_hystrix();
+                main_filter_sentinel();
             }
 //            Thread.sleep(12000);
 //        }
@@ -87,7 +90,7 @@ public class DubboClientServer {
     }
 
 
-    public static void main_filter() {
+    public static void main_filter_trace() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath*:spring/dubbo-consumer.xml"});
         context.start();
         DubboService dubboService = (DubboService) context.getBean("dubboService"); // 获取bean
@@ -112,7 +115,7 @@ public class DubboClientServer {
     }
 
 
-    public static void main_filter1() {
+    public static void main_filter_hystrix() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath*:spring/dubbo-consumer.xml"});
         context.start();
         CommonService commonService = (CommonService) context.getBean("commonService"); // 获取bean
@@ -126,6 +129,31 @@ public class DubboClientServer {
             for (int i = 0; i <10000 ; i++) {
                 Thread.sleep(80);
                 message = commonService.create("");
+//                message = commonService.create(i+ "");
+//                message = commonService.create(i);
+                System.out.println("CommonService.create--:"+ DateUtil.getYMDHMSTime()+"-" + message);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void main_filter_sentinel() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath*:spring/dubbo-consumer.xml"});
+        context.start();
+        BusinessService businessService = (BusinessService) context.getBean("businessService"); // 获取bean
+//        DubboService dubboService = (DubboService) context.getBean("dubboService"); // 获取bean
+//        GlobalService globalService = (GlobalService) context.getBean("globalService"); // 获取bean
+        String message = "";
+        try {
+//            int randomTraceId = (int) (Math.random() * 1000);
+//            TraceIdUtil.setTraceId(randomTraceId + "");
+//            message = commonService.create("");
+            for (int i = 0; i <10000 ; i++) {
+                Thread.sleep(80);
+                message = businessService.createBusiness("");
 //                message = commonService.create(i+ "");
 //                message = commonService.create(i);
                 System.out.println("CommonService.create--:"+ DateUtil.getYMDHMSTime()+"-" + message);
