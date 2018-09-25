@@ -25,4 +25,9 @@ public class CommonServiceMock implements CommonService {
         }
         return DateUtil.getYMDHMSTime() + " : " + name;
     }
+
+    @Override
+    public String create(Integer param) throws Exception {
+        return null;
+    }
 }

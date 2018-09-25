@@ -17,5 +17,6 @@ public interface CommonService {
 
     String create(String name) throws Exception;
 
+    String create(Integer param) throws Exception;
 
 }
