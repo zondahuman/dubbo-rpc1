@@ -27,16 +27,16 @@
         <dubbo:method name="findByParam" async="true"/>
     </dubbo:reference>
 
-    <!--<dubbo:reference interface="com.abin.lee.dubbo.rpc.api.CommonService" id="commonService" check="false"-->
-                     <!--url="dubbo://localhost:20880" mock="com.abin.lee.dubbo.rpc.api.CommonServiceMock" timeout="10000">-->
-        <!--&lt;!&ndash;<dubbo:method name="create" async="true"/>&ndash;&gt;-->
-        <!--<dubbo:method name="create" />-->
-    <!--</dubbo:reference>-->
     <dubbo:reference interface="com.abin.lee.dubbo.rpc.api.CommonService" id="commonService" check="false"
                      url="dubbo://localhost:20880" mock="true" timeout="10000">
         <!--<dubbo:method name="create" async="true"/>-->
         <dubbo:method name="create" />
     </dubbo:reference>
+    <!--<dubbo:reference interface="com.abin.lee.dubbo.rpc.api.CommonService" id="commonService" check="false"-->
+                     <!--url="dubbo://localhost:20880" mock="return null" timeout="10000">-->
+        <!--&lt;!&ndash;<dubbo:method name="create" async="true"/>&ndash;&gt;-->
+        <!--<dubbo:method name="create" />-->
+    <!--</dubbo:reference>-->
 
 
     <dubbo:consumer filter="logSessionFilter" timeout="9000"/>

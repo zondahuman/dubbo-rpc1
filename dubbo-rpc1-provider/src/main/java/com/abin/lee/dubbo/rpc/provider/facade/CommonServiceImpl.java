@@ -8,6 +8,7 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.slots.block.RuleConstant;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
+import com.alibaba.dubbo.rpc.RpcException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +35,8 @@ public class CommonServiceImpl implements CommonService {
     @Override
     public String create(String name) throws Exception {
         if(StringUtils.isBlank(name)){
-            throw new RuntimeException("a new exception ..");
+//            throw new RuntimeException("a new exception ..");
+            throw new RpcException("a new exception ..");
         }
         return DateUtil.getYMDHMSTime()+" : " + name;
     }
