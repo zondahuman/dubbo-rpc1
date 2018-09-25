@@ -23,7 +23,7 @@ public class CommonServiceMock implements CommonService {
         if (StringUtils.isBlank(name)) {
             throw new RuntimeException("a new exception ..");
         }
-        return DateUtil.getYMDHMSTime() + " : " + name;
+        return DateUtil.getYMDHMSTime() + "--mock--" + name;
     }
 
     @Override

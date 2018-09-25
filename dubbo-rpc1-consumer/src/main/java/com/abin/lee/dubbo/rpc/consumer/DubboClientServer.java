@@ -125,7 +125,9 @@ public class DubboClientServer {
 //            message = commonService.create("");
             for (int i = 0; i <10000 ; i++) {
                 Thread.sleep(80);
-                message = commonService.create(i);
+                message = commonService.create("");
+//                message = commonService.create(i+ "");
+//                message = commonService.create(i);
                 System.out.println("CommonService.create--:"+ DateUtil.getYMDHMSTime()+"-" + message);
             }
 
