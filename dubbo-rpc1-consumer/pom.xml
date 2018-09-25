@@ -27,6 +27,13 @@
             <groupId>com.abin.lee</groupId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba.csp/sentinel-dubbo-adapter -->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-dubbo-adapter</artifactId>
+            <version>0.1.1</version>
+        </dependency>
+
     </dependencies>
 
 

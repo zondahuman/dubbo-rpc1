@@ -31,5 +31,9 @@
 
     <dubbo:consumer filter="logSessionFilter" timeout="9000"/>
 
+    <!--<bean id="consumerConfig" class="com.alibaba.dubbo.config.ConsumerConfig">-->
+        <!--<property name="filter" value="-sentinel.dubbo.consumer.filter"></property>-->
+    <!--</bean>-->
+
 
 </beans>
