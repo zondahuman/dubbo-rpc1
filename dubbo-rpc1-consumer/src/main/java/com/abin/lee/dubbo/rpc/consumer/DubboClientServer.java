@@ -30,17 +30,17 @@ public class DubboClientServer {
 //        main_async();
         //traceId
 //        while (true) {
-            for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++) {
 //                main_filter_trace();
 //                main_filter_hystrix();
-                main_filter_sentinel();
-            }
+            main_filter_sentinel();
+        }
 //            Thread.sleep(12000);
 //        }
     }
 
     public static void main_sync() {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath*:spring/dubbo-consumer.xml","classpath*:dubbo.properties"});
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath*:spring/dubbo-consumer.xml", "classpath*:dubbo.properties"});
         context.start();
         DubboService dubboService = (DubboService) context.getBean("dubboService"); // 获取bean
         // service
@@ -126,12 +126,12 @@ public class DubboClientServer {
 //            int randomTraceId = (int) (Math.random() * 1000);
 //            TraceIdUtil.setTraceId(randomTraceId + "");
 //            message = commonService.create("");
-            for (int i = 0; i <10000 ; i++) {
+            for (int i = 0; i < 10000; i++) {
                 Thread.sleep(80);
                 message = commonService.create("");
 //                message = commonService.create(i+ "");
 //                message = commonService.create(i);
-                System.out.println("CommonService.create--:"+ DateUtil.getYMDHMSTime()+"-" + message);
+                System.out.println("CommonService.create--:" + DateUtil.getYMDHMSTime() + "-" + message);
             }
 
         } catch (Exception e) {
@@ -151,12 +151,12 @@ public class DubboClientServer {
 //            int randomTraceId = (int) (Math.random() * 1000);
 //            TraceIdUtil.setTraceId(randomTraceId + "");
 //            message = commonService.create("");
-            for (int i = 0; i <10000 ; i++) {
+            for (int i = 0; i < 10000; i++) {
                 Thread.sleep(80);
-                message = businessService.createBusiness("");
+                message = businessService.createBusiness(i + "");
 //                message = commonService.create(i+ "");
 //                message = commonService.create(i);
-                System.out.println("CommonService.create--:"+ DateUtil.getYMDHMSTime()+"-" + message);
+                System.out.println("CommonService.create--:" + DateUtil.getYMDHMSTime() + "-" + message);
             }
 
         } catch (Exception e) {
