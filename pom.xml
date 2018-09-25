@@ -39,6 +39,14 @@
 
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.alibaba.csp/sentinel-annotation-aspectj -->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-annotation-aspectj</artifactId>
+            <version>0.1.1</version>
+        </dependency>
+
+
         <dependency>
             <groupId>com.alibaba.csp</groupId>
             <artifactId>sentinel-core</artifactId>

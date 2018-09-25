@@ -29,6 +29,11 @@
                      url="dubbo://localhost:20880" mock="true" timeout="10000">
         <!--<dubbo:method name="create" async="true"/>-->
     </dubbo:reference>
+    <dubbo:reference interface="com.abin.lee.dubbo.rpc.api.BusinessService" id="businessService" check="false"
+                     url="dubbo://localhost:20880" mock="true" timeout="10000">
+        <!--<dubbo:method name="create" async="true"/>-->
+    </dubbo:reference>
+
 
     <dubbo:consumer filter="logSessionFilter" timeout="9000"/>
 

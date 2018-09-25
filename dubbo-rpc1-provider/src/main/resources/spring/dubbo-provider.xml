@@ -34,6 +34,7 @@
 
     <dubbo:service interface="com.abin.lee.dubbo.rpc.api.GlobalService" ref="globalService"/>
     <dubbo:service interface="com.abin.lee.dubbo.rpc.api.CommonService" ref="commonService"/>
+    <dubbo:service interface="com.abin.lee.dubbo.rpc.api.BusinessService" ref="businessService"/>
 
 
     <!-- 使用zookeeper注册中心暴露服务地址 -->
