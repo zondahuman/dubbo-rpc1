@@ -43,7 +43,8 @@ ById,build,findById,findByParam&pid=846368&side=provider&timestamp=1536485385082
 dubbo mock:
 http://dubbo.incubator.apache.org/zh-cn/docs/user/demos/local-mock.html
 
-
+主流框架的适配
+https://github.com/alibaba/Sentinel/wiki/%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6%E7%9A%84%E9%80%82%E9%85%8D
 
 
 
