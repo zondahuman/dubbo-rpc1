@@ -20,14 +20,12 @@ public class CommonServiceMock implements CommonService {
 
     @Override
     public String create(String name) throws Exception {
-        if (StringUtils.isBlank(name)) {
-            throw new RuntimeException("a new exception ..");
-        }
+
         return DateUtil.getYMDHMSTime() + "--mock--" + name;
     }
 
     @Override
     public String create(Integer param) throws Exception {
-        return null;
+        return "--mock--param: " + param;
     }
 }
