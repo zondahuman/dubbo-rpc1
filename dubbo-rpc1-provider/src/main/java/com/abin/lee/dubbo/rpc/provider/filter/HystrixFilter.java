@@ -19,13 +19,15 @@ public class HystrixFilter implements Filter {
 //        String typeName = invocation.getInvoker().getInterface().getTypeName();
         String path = invocation.getInvoker().getUrl().getPath();
 //        System.out.println("path=" + JsonUtil.toJson(path));
-        if (StringUtils.equals(path, "com.abin.lee.dubbo.rpc.api.CommonService")) {
-            return invoker.invoke(invocation);
-        } else {
-            DubboHystrixCommand command = new DubboHystrixCommand(invoker, invocation, "ERROR");
-            Result res = command.execute();
-            return res;
-        }
+        return invoker.invoke(invocation);
+
+//        if (StringUtils.equals(path, "com.abin.lee.dubbo.rpc.api.CommonService")) {
+//            return invoker.invoke(invocation);
+//        } else {
+//            DubboHystrixCommand command = new DubboHystrixCommand(invoker, invocation, "ERROR");
+//            Result res = command.execute();
+//            return res;
+//        }
     }
 
 }
