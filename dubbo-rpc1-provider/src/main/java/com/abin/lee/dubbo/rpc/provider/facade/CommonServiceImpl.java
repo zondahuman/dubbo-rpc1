@@ -6,6 +6,8 @@ import com.alibaba.csp.sentinel.Entry;
 import com.alibaba.csp.sentinel.SphU;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.slots.block.RuleConstant;
+import com.alibaba.csp.sentinel.slots.block.degrade.DegradeRule;
+import com.alibaba.csp.sentinel.slots.block.degrade.DegradeRuleManager;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
 import org.apache.commons.lang3.StringUtils;
@@ -62,7 +64,9 @@ public class CommonServiceImpl implements CommonService {
         return "";
     }
 
-
+    /**
+     * 通过代码定义流量控制规则
+     */
     private void initFlowRules() {
         List<FlowRule> rules = new ArrayList<FlowRule>();
         FlowRule rule = new FlowRule();
@@ -73,6 +77,22 @@ public class CommonServiceImpl implements CommonService {
         rules.add(rule);
         FlowRuleManager.loadRules(rules);
     }
+
+    /**
+     * 熔断降级规则 (DegradeRule)
+     */
+    private static void initDegradeRule() {
+        List<DegradeRule> rules = new ArrayList<>();
+        DegradeRule rule = new DegradeRule();
+        rule.setResource("HelloWorld");
+        // set threshold rt, 10 ms
+        rule.setCount(10);
+        rule.setGrade(RuleConstant.DEGRADE_GRADE_RT);
+        rule.setTimeWindow(10);
+        rules.add(rule);
+        DegradeRuleManager.loadRules(rules);
+    }
+
 
 
 }

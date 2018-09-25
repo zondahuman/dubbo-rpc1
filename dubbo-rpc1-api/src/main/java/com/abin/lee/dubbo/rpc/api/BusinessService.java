@@ -7,7 +7,7 @@ public interface BusinessService {
 
     String createBusiness(String name) throws Exception;
 
-    String createBusiness(Integer param) throws Exception;
+    String createNumber(Integer param) throws Exception;
 
 
 
