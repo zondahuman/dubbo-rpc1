@@ -17,9 +17,10 @@
     <dubbo:registry address="N/A"></dubbo:registry>
 
 
+    <!--<dubbo:reference interface="com.abin.lee.dubbo.rpc.api.DubboService" id="dubboService" check="false"-->
+                     <!--url="dubbo://localhost:20880" mock="return null" filter="hystrixFilter"/>-->
     <dubbo:reference interface="com.abin.lee.dubbo.rpc.api.DubboService" id="dubboService" check="false"
-                     url="dubbo://localhost:20880" mock="return null" filter="hystrixFilter"/>
-
+                     url="dubbo://localhost:20880" mock="return null"  />
     <dubbo:reference interface="com.abin.lee.dubbo.rpc.api.GlobalService" id="globalService" check="false"
                      url="dubbo://localhost:20880" mock="return null">
         <dubbo:method name="findByParam" async="true"/>

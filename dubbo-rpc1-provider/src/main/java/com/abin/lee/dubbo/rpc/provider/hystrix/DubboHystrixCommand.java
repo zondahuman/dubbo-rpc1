@@ -79,6 +79,6 @@ public class DubboHystrixCommand extends HystrixCommand<Result> {
             //抛出原本的异常
             return super.getFallback();
         }
-        return new RpcResult("the dubbo fallback.");
+        return new RpcResult("the dubbo provider fallback.");
     }
 }
