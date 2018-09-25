@@ -17,7 +17,7 @@
     <!--<bean id="globalService" class="com.abin.lee.dubbo.rpc.provider.facade.GlobalServiceImpl"/>-->
     <!--<bean id="commonService" class="com.abin.lee.dubbo.rpc.provider.facade.CommonServiceImpl"/>-->
     <!-- 提供方应用信息，用于计算依赖关系 -->
-    <dubbo:application name="dubbo-client"/>
+    <dubbo:application name="dubbo-provider"/>
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880"/>
     <!-- 声明需要暴露的服务接口 -->
@@ -37,7 +37,8 @@
     <!-- dubbo接口去除注册中心，采用直连的方式  -->
     <dubbo:registry address="N/A"></dubbo:registry>
 
-    <dubbo:provider filter="logSessionFilter,trafficLimitFilter,hystrixFilter" timeout="9000"/>
+    <dubbo:provider filter="logSessionFilter,trafficLimitFilter" timeout="9000"/>
+    <!--<dubbo:provider filter="logSessionFilter,trafficLimitFilter,hystrixFilter" timeout="9000"/>-->
 
 
 </beans>
