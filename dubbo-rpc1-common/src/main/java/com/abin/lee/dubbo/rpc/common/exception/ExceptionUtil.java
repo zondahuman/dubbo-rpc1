@@ -1,4 +1,4 @@
-package com.abin.lee.dubbo.rpc.provider.exception;
+package com.abin.lee.dubbo.rpc.common.exception;
 
 /**
  * Created by abin on 2018/9/25.
