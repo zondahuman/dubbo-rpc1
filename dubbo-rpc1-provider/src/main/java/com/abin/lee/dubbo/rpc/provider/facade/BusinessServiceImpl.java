@@ -21,7 +21,7 @@ public class BusinessServiceImpl implements BusinessService {
     @SentinelResource(value = "createBusiness", blockHandler = "handleException", blockHandlerClass = {ExceptionUtil.class})
     public String createBusiness(String input) throws ExceptionUtil {
         Integer param = Ints.tryParse(input);
-        if (param != 0) {
+        if(param % 5 != 4){
             throw new ExceptionUtil("a new exception ..");
         }
         return DateUtil.getYMDHMSTime() + " :createBusiness= " + param;
@@ -31,7 +31,7 @@ public class BusinessServiceImpl implements BusinessService {
     @Override
     @SentinelResource(value = "createNumber", blockHandler = "exceptionHandler", fallback = "createFallback")
     public String createNumber(Integer param) throws Exception {
-        if (param != 0) {
+        if(param % 5 != 4){
             throw new RuntimeException("a new exception ..");
         }
         return DateUtil.getYMDHMSTime() + " :createNumber= " + param;
