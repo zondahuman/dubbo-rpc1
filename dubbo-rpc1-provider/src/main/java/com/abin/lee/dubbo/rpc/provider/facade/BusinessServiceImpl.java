@@ -32,7 +32,7 @@ public class BusinessServiceImpl implements BusinessService {
     @SentinelResource(value = "createNumber", blockHandler = "exceptionHandler", fallback = "createFallback")
     public String createNumber(Integer param) throws Exception {
         if(param % 5 != 4){
-            throw new RuntimeException("a new exception ..");
+            throw new Exception("a new exception ..");
         }
         return DateUtil.getYMDHMSTime() + " :createNumber= " + param;
     }
