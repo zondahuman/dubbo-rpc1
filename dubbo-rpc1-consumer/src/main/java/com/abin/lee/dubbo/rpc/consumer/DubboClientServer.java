@@ -153,9 +153,9 @@ public class DubboClientServer {
 //            message = commonService.create("");
             for (int i = 0; i < 10000; i++) {
                 Thread.sleep(80);
-                message = businessService.createBusiness(i + "");
+//                message = businessService.createBusiness(i + "");
 //                message = commonService.create(i+ "");
-//                message = businessService.createNumber(i);
+                message = businessService.createNumber(i);
                 System.out.println("BusinessService.create--: " + DateUtil.getYMDHMSTime() + "-result: " + message);
             }
         } catch (Exception e) {
